@@ -64,6 +64,6 @@
 -->
   
   <!-- ROS control -->
-  <!--  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" /> -->
+  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
   
 </launch>

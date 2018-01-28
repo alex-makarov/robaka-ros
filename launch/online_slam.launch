@@ -1,11 +1,5 @@
 <launch>
 
-<!--  <param name="robot_description"
-         textfile="$(find robaka)/urdf/robaka_v2.xacro" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher"
-        type="robot_state_publisher" />
--->
-
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find robaka)/conf/cartographer
@@ -19,5 +13,6 @@
     <remap from="imu/data" to="imu" />
   </node>
 
+    <node name="odom_listener" pkg="$(find robaka)" type="odom_listener" />
 
 </launch>
