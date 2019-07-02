@@ -1,0 +1,32 @@
+<launch>
+
+  <arg name="ticks_per_meter" value="198" />
+  <arg name="wheel_separation" value="0.13" />
+
+  <!--> STEP 1 - rosserial -->
+  <node pkg="rosserial_arduino" type="serial_node.py" name="serial_node" output="screen">
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="57600"/>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="odom" args="0.0 0.0 0.0 0.0 0.0 0.0 map odom 100" />
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find robaka)/conf/robaka.perspective" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find robaka)/conf/default.rviz" />
+
+  <node name="robaka_go_to_goal" pkg="robaka"
+        type="robaka_go_to_goal" output="screen">
+    <param name="~rate" value="20" />
+    <param name="~kP" value="0.5" />
+    <param name="~kA" value="1.0" />
+    <param name="~kB" value="-0.8" />
+    <param name="~max_linear_speed" value="1.0" />
+    <param name="~min_linear_speed" value="0.05" />
+    <param name="~max_angular_speed" value="0.7" />
+    <param name="~min_angular_speed" value="0.1" />
+    <param name="~linear_tolerance" value="0.01" />
+    <param name="~angular_tolerance" value="0.04" />
+    <param name="~forwardMovementOnly" value="true" />
+    <!-- <remap from="cmd_vel" to="/robot/cmd_vel" /> -->
+  </node>
+
+</launch>
