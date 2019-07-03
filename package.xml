@@ -14,4 +14,5 @@
   <depend>actionlib_msgs</depend>
   <depend>message_generation</depend>
   <depend>rosserial_arduino</depend>
+  <depend>rviz_imu_plugin</depend>
 </package>
