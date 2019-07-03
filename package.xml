@@ -13,4 +13,5 @@
   <depend>geometry_msgs</depend>
   <depend>actionlib_msgs</depend>
   <depend>message_generation</depend>
+  <depend>rosserial_arduino</depend>
 </package>

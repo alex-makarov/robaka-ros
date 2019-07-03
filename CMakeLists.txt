@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf2
   actionlib
   actionlib_msgs
+  rosserial_arduino
 )
 
 add_action_files(
