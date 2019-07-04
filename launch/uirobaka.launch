@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find robaka)/conf/robaka.perspective" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find robaka)/conf/default.rviz" />
+
+</launch>
