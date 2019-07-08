@@ -16,4 +16,5 @@
   <depend>rosserial_arduino</depend>
   <depend>rviz_imu_plugin</depend>
   <depend>teleop_twist_keyboard</depend>
+  <depend>ydlidar</depend>
 </package>
