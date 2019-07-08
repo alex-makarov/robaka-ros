@@ -15,4 +15,5 @@
   <depend>message_generation</depend>
   <depend>rosserial_arduino</depend>
   <depend>rviz_imu_plugin</depend>
+  <depend>teleop_twist_keyboard</depend>
 </package>

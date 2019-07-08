@@ -64,7 +64,7 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 0.5
-      Buffer Length: 10
+      Buffer Length: 100
       Class: rviz/Range
       Color: 255; 255; 255
       Enabled: true
@@ -208,7 +208,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 299.5992431640625
+      Scale: 83.43867492675781
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
       X: -0.1263498067855835
