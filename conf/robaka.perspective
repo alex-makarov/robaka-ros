@@ -112,7 +112,7 @@
                 },
                 "mouse_pub_topic": {
                   "type": "repr",
-                  "repr": "u'/jetbot_camera/camera/image_mouse_left'"
+                  "repr": "u'/camera/camera/image/compressed_mouse_left'"
                 },
                 "num_gridlines": {
                   "type": "repr",
@@ -132,7 +132,7 @@
                 },
                 "topic": {
                   "type": "repr",
-                  "repr": "u'/jetbot_camera/camera/image'"
+                  "repr": "u'/camera/camera/image/compressed'"
                 },
                 "publish_click_location": {
                   "type": "repr",
@@ -183,7 +183,7 @@
                 },
                 "x_limits": {
                   "type": "repr",
-                  "repr": "[-79.42689108848572, 67.74630904197693]"
+                  "repr": "[-142.3675262928009, 4.805673837661743]"
                 }
               },
               "groups": {}
@@ -230,7 +230,7 @@
                 },
                 "x_limits": {
                   "type": "repr",
-                  "repr": "[18.98694086074829, 67.74987602233887]"
+                  "repr": "[-42.67174530029297, 6.091189861297607]"
                 }
               },
               "groups": {}
@@ -377,7 +377,7 @@
               "keys": {
                 "publishers": {
                   "type": "repr",
-                  "repr": "u\"[{'type_name': 'std_msgs/Float32', 'topic_name': '/lwheel_vtarget', 'enabled': False, 'rate': 1.0, 'expressions': {u'/lwheel_vtarget/data': '0'}, 'publisher_id': 0, 'counter': 0}, {'type_name': 'std_msgs/Float32', 'topic_name': '/rwheel_vtarget', 'enabled': False, 'rate': 1.0, 'expressions': {u'/rwheel_vtarget/data': '0'}, 'publisher_id': 1, 'counter': 0}, {'type_name': 'actionlib_msgs/GoalID', 'topic_name': '/robaka_go_to_goal/cancel', 'enabled': False, 'rate': 1.0, 'expressions': {}, 'publisher_id': 2, 'counter': 0}]\""
+                  "repr": "u\"[{'topic_name': '/lwheel_vtarget', 'type_name': 'std_msgs/Float32', 'enabled': False, 'rate': 1.0, 'expressions': {u'/lwheel_vtarget/data': '0'}, 'publisher_id': 0, 'counter': 0}, {'topic_name': '/rwheel_vtarget', 'type_name': 'std_msgs/Float32', 'enabled': False, 'rate': 1.0, 'expressions': {u'/rwheel_vtarget/data': '0'}, 'publisher_id': 1, 'counter': 0}, {'topic_name': '/robaka_go_to_goal/cancel', 'type_name': 'actionlib_msgs/GoalID', 'enabled': False, 'rate': 1.0, 'expressions': {}, 'publisher_id': 2, 'counter': 0}]\""
                 }
               },
               "groups": {}
