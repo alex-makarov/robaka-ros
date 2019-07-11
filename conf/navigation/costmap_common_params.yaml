@@ -16,6 +16,7 @@ footprint_padding: 0.1
 plugins:
 - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
 - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+- {name: range_sensor_layer, type: "range_sensor_layer::RangeSensorLayer"}
 
 obstacles_layer:
   observation_sources: scan
@@ -23,3 +24,11 @@ obstacles_layer:
 
 inflater_layer:
  inflation_radius: 0.30
+
+range_sensor_layer:
+    clear_threshold:      0.46
+    mark_threshold:       0.98
+    no_readings_timeout:  2.0
+    clear_on_max_reading: true
+    topics: ["/sonar_left","/sonar_middle","/sonar_right"]
+  
