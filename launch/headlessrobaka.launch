@@ -43,23 +43,4 @@
   <node pkg="tf" type="static_transform_publisher" name="imu_tf_broadcaster" args="-0.18 0.0 0.00 0 0 0 base_link imu 40" />
   <node pkg="tf" type="static_transform_publisher" name="laser_tf_broadcaster" args="-0.03 -0.07 0.11 0 0 0 base_link lidar 40" />
 
-  <!-- <node pkg="tf" type="static_transform_publisher" name="odom" args="0.0 0.0 0.0 0.0 0.0 0.0 map odom 100" /> 
--->
-
-  <node name="robaka_go_to_goal" pkg="robaka"
-        type="robaka_go_to_goal" output="screen">
-    <param name="~rate" value="20" />
-    <param name="~kP" value="0.5" />
-    <param name="~kA" value="1.0" />
-    <param name="~kB" value="-0.8" />
-    <param name="~max_linear_speed" value="1.0" />
-    <param name="~min_linear_speed" value="0.05" />
-    <param name="~max_angular_speed" value="0.7" />
-    <param name="~min_angular_speed" value="0.1" />
-    <param name="~linear_tolerance" value="0.01" />
-    <param name="~angular_tolerance" value="0.04" />
-    <param name="~forwardMovementOnly" value="true" />
-    <!-- <remap from="cmd_vel" to="/robot/cmd_vel" /> -->
-  </node>
-
 </launch>

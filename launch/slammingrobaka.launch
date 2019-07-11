@@ -1,0 +1,6 @@
+<launch>
+
+    <include file="$(find robaka)/launch/headlessrobaka.launch" pass_all_args="true" />
+    <include file="$(find robaka)/launch/online_slam.launch"/>
+
+</launch>
