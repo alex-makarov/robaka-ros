@@ -3,4 +3,7 @@
     <include file="$(find robaka)/launch/headlessrobaka.launch" pass_all_args="true" />
     <include file="$(find robaka)/launch/online_slam.launch"/>
 
+    <!--- Run Move Base -->
+    <include file="$(find robaka)/launch/include/move_base.launch" />
+
 </launch>

@@ -16,6 +16,9 @@
   <depend>rosserial_arduino</depend>
   <depend>rviz_imu_plugin</depend>
   <depend>teleop_twist_keyboard</depend>
-  <depend>ydlidar</depend>
+  <!-- <depend>ydlidar</depend> -->
   <depend>cartographer</depend>
+  <depend>amcl</depend>
+  <depend>move_base</depend>
+  <depend>map_server</depend>
 </package>
