@@ -30,6 +30,9 @@
     <param name="frequency"    type="double" value="7"/>
   </node>
 
+  <!-- IMU filter -->
+  <include file="$(find robaka)/launch/include/imu.launch" />
+
   <!-- Attempts to make it work over ESP8266
   <node pkg="rosserial_python" type="serial_node.py" name="socket_node" output="screen">
     <param name="port" value="tcp"/>
