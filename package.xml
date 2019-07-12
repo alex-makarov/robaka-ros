@@ -22,5 +22,6 @@
   <depend>move_base</depend>
   <depend>map_server</depend>
   <depend>range_sensor_layer</depend>
+  <depend>imu_filter_madgwick</depend>
   <depend>robot_localization</depend>
 </package>
