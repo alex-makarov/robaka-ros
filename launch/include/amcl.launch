@@ -35,7 +35,7 @@
     <!--Rotational movement required before performing a filter update. -->
     <param name="update_min_a" value="0.314"/>
     <param name="odom_frame_id" value="odom"/>
-    <param name="base_frame_id" value="base_link"/>
+    <param name="base_frame_id" value="base_footprint"/>
     <param name="global_frame_id" value="map"/>
     <!-- Number of filter updates required before resampling. -->
     <param name="resample_interval" value="1"/>
