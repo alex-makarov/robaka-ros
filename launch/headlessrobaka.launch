@@ -34,10 +34,11 @@
   <include file="$(find robaka)/launch/include/imu.launch" />
 
   <!-- Localization -->
-  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+<!--  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <remap from="odometry/filtered" to="odom" />
     <rosparam command="load" file="$(find robaka)/conf/robot_localization.yaml" />
   </node>
+-->
 
   <!-- Attempts to make it work over ESP8266
   <node pkg="rosserial_python" type="serial_node.py" name="socket_node" output="screen">
