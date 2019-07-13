@@ -51,5 +51,6 @@
   <node pkg="tf" type="static_transform_publisher" name="right_sonar_tf_broadcaster" args="0.12 -0.06 0 -0.785 0 0 base_link sonarright 100" />
   <node pkg="tf" type="static_transform_publisher" name="imu_tf_broadcaster" args="-0.18 0.0 0.00 0 0 0 base_link imu 40" />
   <node pkg="tf" type="static_transform_publisher" name="laser_tf_broadcaster" args="-0.03 -0.07 0.11 0 0 0 base_link lidar 40" />
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_tf_broadcaster" args="0 0 -0.02 0 0 0 base_link base_footprint 100" />
 
 </launch>
