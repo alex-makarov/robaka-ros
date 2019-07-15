@@ -1,22 +1,32 @@
 TrajectoryPlannerROS:
 
   # Robot Configuration Parameters
-  acc_lim_x: 2.5
-  acc_lim_theta:  3.2
+  acc_lim_x: 0.25
+  acc_lim_y: 0.0
+  acc_lim_theta:  0.25
 
-  max_vel_x: 1.0
-  min_vel_x: 0.4
+  max_vel_x: 0.25
+  min_vel_x: 0.1
 
-  max_vel_theta: 1.57
-  min_vel_theta: -1.57
+  max_trans_vel: 0.25
+  min_trans_vel: 0.1
+
+  max_rot_vel: 0.57
+  min_rot_vel: -0.57
+
+  max_vel_theta: 0.57
+  min_vel_theta: -0.57
   min_in_place_vel_theta: 0.5
+
+  trans_stopped_vel: 0.2
+  rot_stopped_vel: 0.2
 
   holonomic_robot: false
   escape_vel: -1.0
 
   # Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.157
-  xy_goal_tolerance: 0.25
+  yaw_goal_tolerance: 1.57
+  xy_goal_tolerance: 0.5
   latch_xy_goal_tolerance: true
 
   # Forward Simulation Parameters
@@ -36,7 +46,7 @@ TrajectoryPlannerROS:
   heading_lookahead: 0.325  #How far to look ahead in meters when scoring different in-place-rotation trajectories
   heading_scoring: false  #Whether to score based on the robot's heading to the path or its distance from the path. default false
   heading_scoring_timestep: 0.8   #How far to look ahead in time in seconds along the simulated trajectory when using heading scoring (double, default: 0.8)
-  dwa: true #Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout
+  dwa: false #Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout
   simple_attractor: false
   publish_cost_grid_pc: true
 
@@ -44,3 +54,7 @@ TrajectoryPlannerROS:
   oscillation_reset_dist: 0.05 #How far the robot must travel in meters before oscillation flags are reset (double, default: 0.05)
   escape_reset_dist: 0.1
   escape_reset_theta: 0.1
+
+  publish_traj_pc: true
+  publish_cost_grid_pc: true
+

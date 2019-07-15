@@ -11,3 +11,5 @@ oscillation_distance: 0.5
 
 recovery_behavior_enabled: true
 clearing_rotation_allowed: true
+
+base_local_planner: dwa_local_planner/DWAPlannerROS
