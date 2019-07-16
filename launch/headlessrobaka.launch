@@ -3,10 +3,14 @@
   <arg name="port" default="/dev/ttyUSB0"/>
   <arg name="ticks_per_meter" value="198" />
   <arg name="wheel_separation" value="0.13" />
+  
+  <!-- Ticks per second -->
+  <arg name="max_motor_speed" value="100"/> 
 
   <node pkg="rosserial_arduino" type="serial_node.py" name="serial_node" output="screen">
     <param name="port" value="$(arg port)"/>
     <param name="baud" value="57600"/>
+    <param name="max_motor_speed" value="$(arg max_motor_speed)"/>
   </node>
 
   <!-- Camera -->
