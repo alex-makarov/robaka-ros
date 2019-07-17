@@ -13,19 +13,6 @@ find_package(catkin REQUIRED COMPONENTS
   rosserial_arduino
 )
 
-add_action_files(
-  DIRECTORY action
-  FILES GoToPose.action
-)
-
-catkin_install_python(
-    PROGRAMS
-        nodes/robaka_go_to_goal
-        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-catkin_python_setup()
-
 generate_messages (
   DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
 )

@@ -1,9 +1,0 @@
-# goal definition
-geometry_msgs/PoseStamped pose
----
-# result definition
-bool success
----
-# feedback
-bool processing
-
