@@ -24,4 +24,5 @@
   <depend>range_sensor_layer</depend>
   <depend>imu_filter_madgwick</depend>
   <depend>robot_localization</depend>
+  <depend>teb_local_planner</depend>
 </package>

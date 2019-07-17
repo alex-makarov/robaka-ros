@@ -5,7 +5,7 @@
   <arg name="wheel_separation" value="0.13" />
   
   <!-- Ticks per second -->
-  <arg name="max_motor_speed" value="100"/> 
+  <arg name="max_motor_speed" value="49"/> 
 
   <node pkg="rosserial_arduino" type="serial_node.py" name="serial_node" output="screen">
     <param name="port" value="$(arg port)"/>
