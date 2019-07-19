@@ -1,6 +1,6 @@
 # ROBAKA
 
-This is the ROS package for Robaka, my ROS and SLAM mobile testbed. It uses Robaka ROS node running on Arduino, and doing SLAM with Google Cartographer.
+This is the ROS package for Robaka, my ROS and SLAM mobile testbed. It uses Robaka ROS node running on Arduino, and doing SLAM with Google Cartographer. Arduino repo is here: https://github.com/alex-makarov/robaka
 
 To start:
 ```
