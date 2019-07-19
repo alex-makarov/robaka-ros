@@ -13,10 +13,17 @@ find_package(catkin REQUIRED COMPONENTS
   rosserial_arduino
 )
 
-generate_messages (
-  DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
-)
+#generate_messages (
+#  DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
+#)
 
 catkin_package(
-  CATKIN_DEPENDS actionlib_msgs
+  LIBRARIES ${PROJECT_NAME}
 )
+
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+add_executable(odom_listener src/cartographer_tf_to_odom.cpp)
+target_link_libraries(odom_listener ${catkin_LIBRARIES})
+install(TARGETS odom_listener
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

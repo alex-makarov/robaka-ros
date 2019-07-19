@@ -10,9 +10,7 @@
     
     <rosparam file="$(find robaka)/conf/navigation/base_local_planner_params.yaml" command="load" />
     <rosparam file="$(find robaka)/conf/navigation/move_base_params.yaml" command="load" />
-    
-    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
-    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+    <rosparam file="$(find robaka)/conf/navigation/dwa_local_planner_params.yaml" command="load" />
     
     <remap from="odom" to="odometry/filtered" />
   </node>

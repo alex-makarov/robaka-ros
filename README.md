@@ -37,6 +37,3 @@ Save map:
 ```
 $ rosrun map_server map_saver -f map1
 ```
-
-
-Uses diff_drive by Mark Rose.

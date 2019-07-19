@@ -1,9 +1,9 @@
 shutdown_costmaps: false
 
-controller_frequency: 20.0
+controller_frequency: 5.0 # was: 20.0
 controller_patience: 15.0
 
-planner_frequency: 20.0
+planner_frequency: 5.0 # was: 20.0
 planner_patience: 5.0
 
 oscillation_timeout: 0.0
@@ -13,3 +13,13 @@ recovery_behavior_enabled: true
 clearing_rotation_allowed: false
 
 base_local_planner: teb_local_planner/TebLocalPlannerROS
+#base_local_planner: dwa_local_planner/DWAPlannerROS
+
+base_global_planner: global_planner/GlobalPlanner
+#base_global_planner: carrot_planner/CarrotPlanner
+
+TebLocalPlannerROS:
+  use_grid_path: true
+  visualize_potential: true
+  use_quadratic: false
+  use_dijkstra: false

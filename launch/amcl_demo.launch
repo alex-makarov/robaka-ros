@@ -8,6 +8,6 @@
  <include file="$(find robaka)/launch/include/amcl.launch" />
 
   <!--- Run Move Base -->
- <include file="$(find robaka)/launch/include/move_base.launch" />
+ <include file="$(find robaka)/launch/move_base_main.launch" />
 
 </launch>

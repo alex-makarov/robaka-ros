@@ -5,13 +5,11 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /Imu1
-        - /Imu1/Box properties1
         - /TF1/Frames1
         - /TF1/Tree1
         - /Odometry1/Shape1
         - /Odometry1/Covariance1
-        - /Image2
+        - /Path3
       Splitter Ratio: 0.5
     Tree Height: 719
   - Class: rviz/Selection
@@ -82,8 +80,8 @@ Visualization Manager:
         Acc. vector alpha: 1
         Acc. vector color: 255; 0; 0
         Acc. vector scale: 0.10000000149011612
-        Derotate acceleration: false
-        Enable acceleration: false
+        Derotate acceleration: true
+        Enable acceleration: true
       Axes properties:
         Axes scale: 1
         Enable axes: false
@@ -100,7 +98,7 @@ Visualization Manager:
       Topic: /imu/data
       Unreliable: false
       Value: true
-      fixed_frame_orientation: true
+      fixed_frame_orientation: false
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -286,7 +284,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
-      Topic: /move_base/TrajectoryPlannerROS/cost_cloud
+      Topic: /scan_matched_points2
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -320,6 +318,29 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/GlobalPlanner/plan
+      Unreliable: false
       Value: true
     - Alpha: 1
       Buffer Length: 1
@@ -373,7 +394,7 @@ Visualization Manager:
       Draw Behind: false
       Enabled: true
       Name: Map
-      Topic: /move_base/local_costmap/costmap
+      Topic: /move_base/global_costmap/costmap
       Unreliable: false
       Use Timestamp: false
       Value: true
@@ -429,6 +450,71 @@ Visualization Manager:
       Transport Hint: compressed
       Unreliable: false
       Value: false
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /move_base/GlobalPlanner/potential
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: ""
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: ""
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /move_base/DWAPlannerROS/cost_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: PoseArray
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Arrow (Flat)
+      Topic: /move_base/TebLocalPlannerROS/teb_poses
+      Unreliable: false
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /move_base/TebLocalPlannerROS/teb_markers
+      Name: Marker
+      Namespaces:
+        PointObstacles: true
+        TebContainer: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -469,8 +555,8 @@ Visualization Manager:
       Scale: 85.19945526123047
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: -0.6548647284507751
-      Y: -1.1926239728927612
+      X: 1.2696453332901
+      Y: -1.1541293859481812
     Saved: ~
 Window Geometry:
   Displays:

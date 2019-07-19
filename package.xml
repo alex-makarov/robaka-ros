@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package format="2">
   <name>robaka</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <description>
-    Robaka package. Uses diff_drive from Mark Rose (I'll add it as a proper dependency later).
+    Robaka package.
   </description>
   <author>Alex Makarov</author>
   <maintainer email="road.and.track@gmail.com">Alex Makarov</maintainer>
@@ -25,4 +25,7 @@
   <depend>imu_filter_madgwick</depend>
   <depend>robot_localization</depend>
   <depend>teb_local_planner</depend>
+  <depend>global_planner</depend>
+  <depend>dwa_local_planner</depend>
+  <depend>carrot_planner</depend>
 </package>

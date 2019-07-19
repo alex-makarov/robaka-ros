@@ -1,8 +1,4 @@
-#TrajectoryPlannerROS:
-
-
 TebLocalPlannerROS:
-
   # Robot Configuration Parameters
   acc_lim_x: 1
   acc_lim_y: 0.0
@@ -18,8 +14,8 @@ TebLocalPlannerROS:
   max_rot_vel: 0.8
   min_rot_vel: 0.6
 
-  max_vel_theta: 0.8
-  min_vel_theta: -0.8
+  max_vel_theta: 8 # real 0.8
+  min_vel_theta: -8 # real -0.8
   min_in_place_vel_theta: 0.6
 
 #  trans_stopped_vel: 0.2
@@ -37,9 +33,9 @@ TebLocalPlannerROS:
   sim_time: 2.0
   sim_granularity: 0.02
   angular_sim_granularity: 0.02
-  vx_samples: 10
-  vtheta_samples: 20
-  controller_frequency: 20.0
+  vx_samples: 5 # was 10
+  vtheta_samples: 10 # was 20
+  controller_frequency: 5.0 # was 20.0
 
   # Trajectory scoring parameters
   meter_scoring: true # Whether the gdist_scale and pdist_scale parameters should assume that goal_distance and path_distance are expressed in units of meters or cells. Cells are assumed by default (false).
@@ -67,3 +63,4 @@ TebLocalPlannerROS:
   wheelbase: 0.12
   allow_init_with_backwards_motion: true
   global_plan_overwrite_orientation: True
+  
