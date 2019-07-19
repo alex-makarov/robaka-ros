@@ -1,70 +1,20 @@
-# DWAPlannerROS:
-#   max_trans_vel: 0.5
-#   min_trans_vel: 0.5
-#   max_vel_x: 0.50
-#   min_vel_x: -0.5
-#   max_vel_y: 0.0
-#   min_vel_y: 0.0
-#   max_rot_vel: 1.0
-#   min_rot_vel: -1.0
-#   acc_lim_x: 1.25
-#   acc_lim_y: 0.0
-#   acc_lim_theta: 5
-#   acc_lim_trans: 1.25
-
-#   prune_plan: false
-
-#   xy_goal_tolerance: 0.4
-#   yaw_goal_tolerance: 3.14
-#   trans_stopped_vel: 0.1
-#   rot_stopped_vel: 0.1
-#   sim_time: 2.0
-#   sim_granularity: 0.1
-#   angular_sim_granularity: 0.1
-#   path_distance_bias: 32.0
-#   goal_distance_bias: 20.0
-#   occdist_scale: 0.05
-#   twirling_scale: 20.0
-#   stop_time_buffer: 0.5
-#   oscillation_reset_dist: 0.05
-#   oscillation_reset_angle: 0.2
-#   forward_point_distance: 0.3
-#   scaling_speed: 0.25
-#   max_scaling_factor: 0.2
-#   vx_samples: 20
-#   vy_samples: 0
-#   vth_samples: 40
-#   controller_frequency: 20.0
-
-#   use_dwa: true
-#   restore_defaults: false
-
-#   publish_traj_pc: true
-#   publish_cost_grid_pc: true
-
 DWAPlannerROS:
 
 # Robot Configuration Parameters
-  max_vel_x: 0.22
-  min_vel_x: -0.22
+  max_vel_x: 1.0
+  min_vel_x: -1.0
 
   max_vel_y: 0.0
   min_vel_y: 0.0
 
 # The velocity when robot is moving in a straight line
-  max_trans_vel:  0.22
-  min_trans_vel:  0.11
-
-  max_rot_vel: 2.75
-  min_rot_vel: 1.37
-
   acc_lim_x: 2.5
   acc_lim_y: 0.0
-  acc_lim_theta: 3.2 
+  acc_lim_theta: 8.0
 
 # Goal Tolerance Parametes
-  xy_goal_tolerance: 0.05
-  yaw_goal_tolerance: 0.17
+  xy_goal_tolerance: 0.4
+  yaw_goal_tolerance: 1.75
   latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters

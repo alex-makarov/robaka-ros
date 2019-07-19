@@ -7,7 +7,7 @@
   </description>
   <author>Alex Makarov</author>
   <maintainer email="road.and.track@gmail.com">Alex Makarov</maintainer>
-  <license>BSD</license>
+  <license>TODO</license>
   <buildtool_depend>catkin</buildtool_depend>
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
@@ -16,7 +16,6 @@
   <depend>rosserial_arduino</depend>
   <depend>rviz_imu_plugin</depend>
   <depend>teleop_twist_keyboard</depend>
-  <!-- <depend>ydlidar</depend> -->
   <depend>cartographer</depend>
   <depend>amcl</depend>
   <depend>move_base</depend>

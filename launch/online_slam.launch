@@ -8,7 +8,7 @@
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find robaka)/conf
+          -configuration_directory $(find robaka)/conf/cartographer
           -configuration_basename robaka.lua"
       output="screen">
     <remap from="imu" to="imu/data" />

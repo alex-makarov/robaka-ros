@@ -12,8 +12,8 @@ oscillation_distance: 0.5
 recovery_behavior_enabled: true
 clearing_rotation_allowed: false
 
-base_local_planner: teb_local_planner/TebLocalPlannerROS
-#base_local_planner: dwa_local_planner/DWAPlannerROS
+#base_local_planner: teb_local_planner/TebLocalPlannerROS
+base_local_planner: dwa_local_planner/DWAPlannerROS
 
 base_global_planner: global_planner/GlobalPlanner
 #base_global_planner: carrot_planner/CarrotPlanner

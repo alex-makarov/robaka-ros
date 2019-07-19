@@ -5,7 +5,7 @@
   <arg name="wheel_separation" value="0.13" />
   
   <!-- Ticks per second -->
-  <arg name="max_motor_speed" value="49"/> 
+  <arg name="max_motor_speed" value="100"/> 
 
   <node pkg="rosserial_arduino" type="serial_node.py" name="serial_node" output="screen">
     <param name="port" value="$(arg port)"/>
@@ -44,7 +44,7 @@
   </node>
 -->
 
-  <!-- Attempts to make it work over ESP8266
+  <!-- ESP8266 debugging
   <node pkg="rosserial_python" type="serial_node.py" name="socket_node" output="screen">
     <param name="port" value="tcp"/>
   </node>

@@ -1,14 +1,8 @@
 <launch>
-<!-- TODO - when URDF is ready
-  <param name="robot_description"
-         textfile="$(find robaka)/conf/backpack_3d.urdf" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher"
-        type="robot_state_publisher" />
--->
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find robaka)/conf
+          -configuration_directory $(find robaka)/conf/cartographer
           -configuration_basename robaka.lua"
       output="screen">
     <remap from="imu" to="imu/data" />

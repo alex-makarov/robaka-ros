@@ -26,13 +26,11 @@
 -->
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find robaka)/conf
+          -configuration_directory $(find robaka)/conf/cartographer
           -configuration_basename robaka_localization.lua
           -load_state_filename $(arg load_state_filename)"
       output="screen">
     <remap from="imu" to="imu/data" />      
-<!--    <remap from="echoes" to="horizontal_laser_2d" />
--->
   </node>
 
   <!--- Run Move Base -->
@@ -50,9 +48,4 @@
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find robaka)/conf/default.rviz" />
   
-<!--
-  <node name="playbag" pkg="rosbag" type="play"
-      args="-clock $(arg bag_filename)" /> 
--->
-
 </launch>

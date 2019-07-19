@@ -18,12 +18,11 @@
   <arg name="config_file" default="assets_writer.lua"/>
   <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
       type="cartographer_assets_writer" args="
-          -configuration_directory $(find robaka)/conf
+          -configuration_directory $(find robaka)/conf/cartographer
           -configuration_basename $(arg config_file)
           -bag_filenames $(arg bag_filenames)
           -pose_graph_filename $(arg pose_graph_filename)"
       output="screen">
 
-      <!-- -urdf_filename $(find robaka)/urdf/backpack_2d.urdf -->
   </node>
 </launch>

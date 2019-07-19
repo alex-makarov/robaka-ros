@@ -6,7 +6,7 @@
 
   <node name="cartographer_offline_node" pkg="cartographer_ros"
       type="cartographer_offline_node" args="
-          -configuration_directory $(find robaka)/conf
+          -configuration_directory $(find robaka)/conf/cartographer
           -configuration_basenames robaka.lua
           -bag_filenames $(arg bag_filenames)"
       output="screen">
