@@ -7,12 +7,6 @@
   <!-- Ticks per second -->
   <arg name="max_motor_speed" value="100"/> 
 
-  <node pkg="rosserial_arduino" type="serial_node.py" name="serial_node" output="screen">
-    <param name="port" value="$(arg port)"/>
-    <param name="baud" value="57600"/>
-    <param name="max_motor_speed" value="$(arg max_motor_speed)"/>
-  </node>
-
   <!-- Camera -->
   <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="screen"/>
 
@@ -34,6 +28,9 @@
     <param name="frequency"    type="double" value="7"/>
   </node>
 
+  <!-- IMU -->
+  <node pkg="adafruit_imu" type="imu_node" name="imu_node" output="screen" />
+
   <!-- IMU filter -->
   <include file="$(find robaka)/launch/include/imu.launch" />
 
@@ -43,12 +40,6 @@
     <rosparam command="load" file="$(find robaka)/conf/robot_localization.yaml" />
   </node>
 -->
-
-  <!-- ESP8266 debugging
-  <node pkg="rosserial_python" type="serial_node.py" name="socket_node" output="screen">
-    <param name="port" value="tcp"/>
-  </node>
-  -->
 
   <!-- Robot configuration -->
   <node pkg="tf" type="static_transform_publisher" name="middle_sonar_tf_broadcaster" args="0.12 0 0 0 0 0 base_link sonarmiddle 100" />
