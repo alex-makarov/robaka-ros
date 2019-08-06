@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robaka_v2">
+
+  <xacro:property name="base_width" value="0.3"/>
+  <xacro:property name="base_len" value="0.4"/>
+  <xacro:property name="base_height" value="0.12"/>
+  <xacro:property name="wheel_radius" value="0.085"/>
+  <xacro:property name="base_wheel_gap" value="0.02"/>
+  <xacro:property name="wheel_separation" value="0.31"/>
+  <xacro:property name="wheel_joint_offset" value="0.105"/>
+  <xacro:property name="caster_wheel_radius" value="0.0375"/>
+  <xacro:property name="caster_wheel_joint_offset" value="-0.08"/>
+
+  <xacro:include filename="$(find robaka)/urdf/robaka_v2_gazebo_plugins.xacro"/>
+  
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="darkgray">
+    <color rgba="0.2 0.2 0.2 1"/>
+  </material>
+  <material name="lightgray">
+    <color rgba="0.8 0.8 0.8 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+
+  <!-- Import Rviz colors -->
+<!--  <xacro:include filename="$(find ros_robotics)/urdf/materials.xacro" /> -->
+  
+  <xacro:macro name="box_inertia" params="m w h d">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${m / 12.0 * (d*d + h*h)}" ixy="0.0" ixz="0.0" iyy="${m / 12.0 * (w*w + h*h)}" iyz="0.0" izz="${m / 12.0 * (w*w + d*d)}"/>
+    </inertial>
+  </xacro:macro>
+ 
+  <link name="base_footprint">
+    <xacro:box_inertia m="8" w="0.001" h="0.001" d="0.001"/>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="white"/>
+        <geometry>
+            <box size="0.001 0.001 0.001" />
+        </geometry>
+    </visual>
+  </link>
+ 
+  <link name="base_link">
+    <xacro:box_inertia m="1" w="${base_len}" h="${base_width}" d="0.01"/>
+    <visual>
+      <material name="lightgray"/>
+      <geometry>
+        <box size="${base_len} ${base_width} ${base_height}"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="${base_len} ${base_width} ${base_height}"/>
+      </geometry>
+    </collision>
+  </link>
+ 
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 ${wheel_radius + 0.005}" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+
+  <xacro:macro name="cylinder_inertia" params="m r h">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0" iyy="${m*(3*r*r+h*h)/12}" iyz = "0" izz="${m*r*r/2}"/> 
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="wheel" params="prefix reflect">
+    <link name="${prefix}_wheel">
+      <visual>
+	<material name="darkgray"/>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="0.02"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="0.02"/>
+        </geometry>
+      </collision>
+      <xacro:cylinder_inertia m="10" r="${wheel_radius}" h="0.02"/>
+    </link>
+
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="${prefix}_wheel"/>
+      <origin xyz="${wheel_joint_offset} ${((base_width/2)+base_wheel_gap)*reflect} -0.06" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:wheel prefix="left" reflect="1"/>
+  <xacro:wheel prefix="right" reflect="-1"/>
+
+  <xacro:macro name="sphere_inertia" params="m r">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${2.0*m*(r*r)/5.0}" ixy="0.0" ixz="0.0" iyy="${2.0*m*(r*r)/5.0}" iyz="0.0" izz="${2.0*m*(r*r)/5.0}"/>
+    </inertial>
+  </xacro:macro>
+
+   <link name="caster_wheel">
+     <visual>
+       <material name="darkgray"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="${caster_wheel_radius}"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="${caster_wheel_radius}"/>
+      </geometry>
+    </collision>
+    <xacro:sphere_inertia m="5" r="${caster_wheel_radius}"/>
+  </link>
+
+  <joint name="caster_wheel_joint" type="continuous">
+    <axis xyz="0 1 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="caster_wheel"/>
+    <origin xyz="${caster_wheel_joint_offset} 0 -${0.06+caster_wheel_radius}" rpy="0 0 0"/>
+  </joint> 
+ 
+</robot>
