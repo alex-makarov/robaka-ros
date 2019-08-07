@@ -26,5 +26,5 @@
   <depend>teb_local_planner</depend>
   <depend>global_planner</depend>
   <depend>dwa_local_planner</depend>
-  <depend>carrot_planner</depend>
+  <depend>twist_mux</depend>
 </package>
