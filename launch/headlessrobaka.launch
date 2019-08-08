@@ -8,7 +8,7 @@
   <arg name="max_motor_speed" value="100"/> 
 
   <!-- Camera -->
-<!--  <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="screen"/> -->
+  <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="screen"/>
 
   <!-- Lidar. Source: git clone https://github.com/EAIBOT/ydlidar -->
 <!--  <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
