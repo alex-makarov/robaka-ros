@@ -1,7 +1,7 @@
 <launch>
-<!-- TODO - when URDF is ready
+<!--
   <param name="robot_description"
-         textfile="$(find robaka)/conf/backpack_3d.urdf" />
+         textfile="$(find robaka)/urdf/robaka_v2.xacro" />
   <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher" />
 -->

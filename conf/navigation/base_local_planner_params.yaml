@@ -60,7 +60,7 @@ TebLocalPlannerROS:
   publish_cost_grid_pc: true
 
 # TEB local planner
-  wheelbase: 0.12
+  wheelbase: 0.355
   allow_init_with_backwards_motion: true
   global_plan_overwrite_orientation: True
   

@@ -1,17 +1,9 @@
 <launch>
-
-  <arg name="port" default="/dev/ttyUSB0"/>
-  <arg name="ticks_per_meter" value="198" />
-  <arg name="wheel_separation" value="0.13" />
-  
-  <!-- Ticks per second -->
-  <arg name="max_motor_speed" value="100"/> 
-
   <!-- Camera -->
   <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="screen"/>
 
   <!-- Lidar. Source: git clone https://github.com/EAIBOT/ydlidar -->
-<!--  <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
+  <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
     <param name="port"         type="string" value="/dev/ydlidar"/>  
     <param name="baudrate"     type="int"    value="128000"/>
     <param name="frame_id"     type="string" value="lidar"/>
@@ -27,11 +19,9 @@
     <param name="samp_rate"    type="int"    value="9"/>
     <param name="frequency"    type="double" value="7"/>
   </node>
--->
 
   <!-- IMU -->
   <node pkg="adafruit_imu" type="imu_node" name="imu_node" output="screen" />
-
   <!-- IMU filter -->
   <include file="$(find robaka)/launch/include/imu.launch" />
 
@@ -55,14 +45,4 @@
 
   <!-- ROS control -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
-
-  <!-- Robot configuration -->
-  <node pkg="tf" type="static_transform_publisher" name="middle_sonar_tf_broadcaster" args="0.12 0 0 0 0 0 base_link sonarmiddle 100" />
-  <node pkg="tf" type="static_transform_publisher" name="left_sonar_tf_broadcaster" args="0.12 0.06 0 0.785 0 0 base_link sonarleft 100" />
-  <node pkg="tf" type="static_transform_publisher" name="right_sonar_tf_broadcaster" args="0.12 -0.06 0 -0.785 0 0 base_link sonarright 100" />
-  <node pkg="tf" type="static_transform_publisher" name="imu_tf_broadcaster" args="-0.18 0.0 0.00 0 0 0 base_link imu 40" />
-  <node pkg="tf" type="static_transform_publisher" name="laser_tf_broadcaster" args="-0.03 -0.07 0.11 0 0 0 base_link lidar 40" />
-  <node pkg="tf" type="static_transform_publisher" name="base_footprint_tf_broadcaster" args="0 0 -0.02 0 0 0 base_link base_footprint 100" />
-  
-
 </launch>

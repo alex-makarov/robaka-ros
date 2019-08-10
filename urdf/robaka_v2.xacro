@@ -7,9 +7,9 @@
   <xacro:property name="wheel_radius" value="0.085"/>
   <xacro:property name="base_wheel_gap" value="0.02"/>
   <xacro:property name="wheel_separation" value="0.31"/>
-  <xacro:property name="wheel_joint_offset" value="0.105"/>
+  <xacro:property name="wheel_joint_offset" value="-0.107"/>
   <xacro:property name="caster_wheel_radius" value="0.0375"/>
-  <xacro:property name="caster_wheel_joint_offset" value="-0.08"/>
+  <xacro:property name="caster_wheel_joint_offset" value="0.12"/>
 
   <xacro:include filename="$(find robaka)/urdf/robaka_v2_gazebo_plugins.xacro"/>
   
@@ -139,6 +139,36 @@
     <parent link="base_link"/>
     <child link="caster_wheel"/>
     <origin xyz="${caster_wheel_joint_offset} 0 -${0.06+caster_wheel_radius}" rpy="0 0 0"/>
-  </joint> 
- 
+  </joint>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="imu" />
+    <origin xyz="0.16 -0.065 0.035" rpy="0 0 0" />
+  </joint>
+  <link name="imu" />
+
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar" />
+    <origin xyz="0.0 0.0 0.12" rpy="0 0 3.14159" />
+  </joint>
+  <link name="lidar">
+    <visual>
+      <material name="blue" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.032" length="0.02"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.185 0 0.07" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="camera" />
+  </joint>
+  <link name="camera" type="fixed">
+  </link>
+
 </robot>
