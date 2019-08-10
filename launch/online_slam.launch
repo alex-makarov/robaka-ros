@@ -1,6 +1,6 @@
 <launch>
-<!--
-  <param name="robot_description"
+
+<!--  <param name="robot_description"
          textfile="$(find robaka)/urdf/robaka_v2.xacro" />
   <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher" />
