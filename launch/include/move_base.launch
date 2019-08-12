@@ -12,7 +12,7 @@
     <rosparam file="$(find robaka)/conf/navigation/move_base_params.yaml" command="load" />
     <rosparam file="$(find robaka)/conf/navigation/dwa_local_planner_params.yaml" command="load" />
     
-    <remap from="odom" to="cartography_odom" />
+    <remap from="odom" to="cartographer_odom" />
   </node>
 
 </launch>
