@@ -52,3 +52,8 @@ $ rosservice call /finish_trajectory 0
 $ rosservice call /write_state "{filename: '/home/alex/mylaserbag23.bag.pbstream'}"
 ```
 
+
+
+NOTE:
+patch cartographer as described here https://github.com/googlecartographer/cartographer/issues/1498#issuecomment-464308882
+to fix global costmap issue
