@@ -9,8 +9,8 @@ Panels:
         - /TF1/Tree1
         - /Odometry1/Shape1
         - /Odometry1/Covariance1
+        - /Image1
         - /LaserScan1
-        - /Image3/Status1
       Splitter Ratio: 0.5
     Tree Height: 366
   - Class: rviz/Selection
@@ -154,8 +154,8 @@ Visualization Manager:
       Unreliable: false
       Value: true
     - Class: rviz/Image
-      Enabled: false
-      Image Topic: /camera/camera/image
+      Enabled: true
+      Image Topic: /camera/camera
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -164,7 +164,7 @@ Visualization Manager:
       Queue Size: 8
       Transport Hint: compressed
       Unreliable: false
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -321,12 +321,12 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic: /move_base/global_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Alpha: 0.6000000238418579
       Class: rviz/Map
       Color Scheme: costmap
@@ -457,7 +457,7 @@ Visualization Manager:
       Unreliable: false
       Value: false
     - Class: rviz/Image
-      Enabled: true
+      Enabled: false
       Image Topic: /camera/camera
       Max Value: 1
       Median window: 5
@@ -467,7 +467,7 @@ Visualization Manager:
       Queue Size: 2
       Transport Hint: compressed
       Unreliable: false
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -505,11 +505,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 104.76606750488281
+      Scale: 55.28839874267578
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: 3.694697856903076
-      Y: 4.204254150390625
+      X: 5.674685955047607
+      Y: -0.2441583275794983
     Saved: ~
 Window Geometry:
   Displays:

@@ -9,9 +9,9 @@ local_costmap:
    static_map: false
    rolling_window: true
 
-   plugins:
-   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+#   plugins:
+#   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
-   inflater_layer:
-     inflation_radius: 0.1 # was 0.1
-     cost_scaling_factor: 0.5 # was 0.5
+#   inflater_layer:
+#     inflation_radius: 0.1 # was 0.1
+#     cost_scaling_factor: 0.5 # was 0.5
