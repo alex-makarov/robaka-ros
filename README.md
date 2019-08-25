@@ -4,6 +4,9 @@
 
 This is the ROS package for Robaka, my ROS and SLAM mobile testbed. Robaka uses ros_control with hardware driver from [this repo](https://github.com/alex-makarov/hoverboard-driver), which relies on hoverboard custom firmware by [Bipropellant](https://github.com/bipropellant).
 
+If you're looking for the Arduino-based Robaka 1, the code is on `robaka-1` branch.
+
+
 To start:
 ```
 $ sudo apt-get install ros-melodic-desktop-full
