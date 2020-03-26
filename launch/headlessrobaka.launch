@@ -1,6 +1,6 @@
 <launch>
   <!-- Camera -->
-  <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="screen"/>
+  <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="log"/>
 
   <!-- Lidar. Source: git clone https://github.com/EAIBOT/ydlidar -->
   <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
@@ -36,6 +36,12 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robaka)/urdf/robaka_v2.xacro"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+  <!-- PS4 joypad -->
+  <include file="$(find ds4_driver)/launch/ds4_twist.launch">
+    <arg name="dof" value="2"/>
+    <remap from="cmd_vel" to="joypad_teleop/cmd_vel"/>
+  </include>
 
   <!-- Twist MUX -->
   <node pkg="twist_mux" type="twist_mux" name="twist_mux">

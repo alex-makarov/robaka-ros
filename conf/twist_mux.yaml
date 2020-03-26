@@ -1,4 +1,8 @@
 topics:
+- name    : joypad
+  topic   : joypad_teleop/cmd_vel
+  timeout : 0.5
+  priority: 20
 - name    : keyboard
   topic   : keyboard_teleop/cmd_vel
   timeout : 0.5
