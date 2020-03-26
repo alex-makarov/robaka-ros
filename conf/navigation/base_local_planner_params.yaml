@@ -4,15 +4,15 @@ TebLocalPlannerROS:
   acc_lim_y: 0.0
   acc_lim_theta:  10 #  1 for real
 
-  max_vel_x: 0.5
-  max_vel_x_backwards: 0.5
-  min_vel_x: 0.5
+  max_vel_x: 1.0
+  max_vel_x_backwards: 1.0
+#  min_vel_x: 0.1
 
-  max_trans_vel: 0.5
-  min_trans_vel: 0.5
+  max_trans_vel: 1.0
+#  min_trans_vel: 0.5
 
-  max_rot_vel: 0.8
-  min_rot_vel: 0.6
+  max_rot_vel: 6.28
+#  min_rot_vel: 0.6
 
   max_vel_theta: 8 # real 0.8
   min_vel_theta: -8 # real -0.8
@@ -34,8 +34,8 @@ TebLocalPlannerROS:
   sim_granularity: 0.02
   angular_sim_granularity: 0.02
   vx_samples: 5 # was 10
-  vtheta_samples: 10 # was 20
-  controller_frequency: 5.0 # was 20.0
+  vtheta_samples: 20
+  controller_frequency: 5.0
 
   # Trajectory scoring parameters
   meter_scoring: true # Whether the gdist_scale and pdist_scale parameters should assume that goal_distance and path_distance are expressed in units of meters or cells. Cells are assumed by default (false).
@@ -57,10 +57,13 @@ TebLocalPlannerROS:
   escape_reset_theta: 0.1
 
   publish_traj_pc: true
-  publish_cost_grid_pc: true
 
 # TEB local planner
   wheelbase: 0.355
   allow_init_with_backwards_motion: true
   global_plan_overwrite_orientation: True
-  
+
+  use_grid_path: true
+  visualize_potential: true
+  use_quadratic: false
+  use_dijkstra: false

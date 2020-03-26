@@ -8,7 +8,7 @@
     <rosparam file="$(find robaka)/conf/navigation/map_nav_params/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find robaka)/conf/navigation/map_nav_params/global_costmap_params.yaml" command="load" />
     
-    <rosparam file="$(find robaka)/conf/navigation/base_local_planner_params.yaml" command="load" /> 
+    <!--    <rosparam file="$(find robaka)/conf/navigation/base_local_planner_params.yaml" command="load" />  -->
     <rosparam file="$(find robaka)/conf/navigation/move_base_params.yaml" command="load" />
     <rosparam file="$(find robaka)/conf/navigation/dwa_local_planner_params.yaml" command="load" />
         

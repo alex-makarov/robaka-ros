@@ -11,10 +11,11 @@ global_costmap:
    static_map: true
    rolling_window: false
 
-   inflater_layer:
-      inflation_radius: 0.4
-
    plugins:
    - {name: static_layer, type: "costmap_2d::StaticLayer"}
    - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
    - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+
+   inflater_layer:
+     inflation_radius: 0.2 # was 0.1
+     cost_scaling_factor: 1.0 # was 0.5
