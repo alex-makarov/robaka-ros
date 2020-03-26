@@ -61,3 +61,7 @@ to fix global costmap issue
 
 ![SLAM](doc/images/robaka2.gif?raw=true "Robaka")
 
+* 2020-03-26
+Added teleop with PS4 controller, using the [driver](http://wiki.ros.org/ds4_driver) from Naoki Mizuno
+
+
