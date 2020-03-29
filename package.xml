@@ -27,4 +27,5 @@
   <depend>global_planner</depend>
   <depend>dwa_local_planner</depend>
   <depend>twist_mux</depend>
+  <depend>nmea_navsat_driver</depend>
 </package>

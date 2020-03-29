@@ -49,6 +49,16 @@
     <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/>
   </node>
 
+  <!-- GPS -->
+  <node name="nmea_serial_driver_node" pkg="nmea_navsat_driver" type="nmea_serial_driver" output="screen">
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="115200" />
+    <param name="frame_id" value="gps" />
+    <param name="use_GNSS_time" value="False" />
+    <param name="time_ref_source" value="gps" />
+    <param name="useRMC" value="False" />
+  </node>
+  
   <!-- ROS control -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
 </launch>
