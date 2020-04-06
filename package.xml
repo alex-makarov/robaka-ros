@@ -28,5 +28,5 @@
   <depend>dwa_local_planner</depend>
   <depend>twist_mux</depend>
   <depend>nmea_navsat_driver</depend>
-  <depend>realsense2_camera</depend>
+<!--  <depend>realsense2_camera</depend> -->
 </package>
