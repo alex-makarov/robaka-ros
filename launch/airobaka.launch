@@ -1,0 +1,10 @@
+<launch>
+
+    <include file="$(find robaka)/launch/headlessrobaka.launch" pass_all_args="true" />
+
+    <node pkg="semantic_segmentation" type="segmentation_node" name="segmentation_node" output="screen" ns="camera">
+	  <param name="topic_image" value="camera" />
+    </node>
+
+
+</launch>

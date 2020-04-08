@@ -64,4 +64,5 @@ to fix global costmap issue
 * 2020-03-26
 Added teleop with PS4 controller, using the [driver](http://wiki.ros.org/ds4_driver) from Naoki Mizuno
 
-
+* 2020-04-08
+Added semantic segmentation for driveable surface. Not tested yet. [Cloned repo](https://github.com/alex-makarov/ros-semantic-segmentation), implemented by Dheera Venkatraman.
