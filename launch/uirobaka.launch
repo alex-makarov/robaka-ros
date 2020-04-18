@@ -2,6 +2,6 @@
 
   <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find robaka)/conf/robaka.perspective" />
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find robaka)/conf/default.rviz" />
-  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" "cmd_vel='keyboard_teleop/cmd_vel'" output="screen" launch-prefix="xterm -e" />
+  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" cmd_vel="'keyboard_teleop/cmd_vel'" output="screen" launch-prefix="xterm -e" />
 
 </launch>
