@@ -1,10 +1,14 @@
 <launch>
 
     <include file="$(find robaka)/launch/headlessrobaka.launch" pass_all_args="true" />
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
 
-    <node pkg="semantic_segmentation" type="segmentation_node" name="segmentation_node" output="screen" ns="camera">
-	  <param name="topic_image" value="camera" />
+    <node pkg="semantic_segmentation" type="segmentation_node" name="segmentation_node" output="screen" ns="/camera/color">
+	  <param name="topic_image" value="image_raw" />
     </node>
 
+    <!-- move_base will run the semantic segmentation plugin publishing to costmap -->
+    <include file="$(find robaka)/launch/move_base_main.launch" />
+    <include file="$(find robaka)/launch/online_slam.launch"/>
 
 </launch>

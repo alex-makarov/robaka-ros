@@ -9,6 +9,11 @@ local_costmap:
    static_map: false
    rolling_window: true
 
+   plugins:
+   - {name: segmentation_layer, type: "segmentation_layer::SegmentationLayer"}
+
+# Parameters for the Segmentation costmap are in conf/semantic-segmentation
+
 #   plugins:
 #   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
