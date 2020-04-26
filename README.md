@@ -66,3 +66,7 @@ Added teleop with PS4 controller, using the [driver](http://wiki.ros.org/ds4_dri
 
 * 2020-04-08
 Added semantic segmentation for driveable surface. Not tested yet. [Cloned repo](https://github.com/alex-makarov/ros-semantic-segmentation), implemented by Dheera Venkatraman.
+
+* 2020-04-18
+Semantic segmentation actually works on a pre-trained network. Started work on transforming the mask using camera homography into a costmap, documenting [here](doc/semantic-segmentation/README.md)
+
