@@ -3,6 +3,7 @@
     <include file="$(find robaka)/launch/headlessrobaka.launch" pass_all_args="true" />
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
    	     <arg name="enable_infra1" value="false"/>
+	     <arg name="enable_infra2" value="false"/>
 	     <arg name="enable_depth" value="false"/>
     </include>
 
