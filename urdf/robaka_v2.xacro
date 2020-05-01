@@ -10,6 +10,7 @@
   <xacro:property name="wheel_joint_offset" value="-0.107"/>
   <xacro:property name="caster_wheel_radius" value="0.0375"/>
   <xacro:property name="caster_wheel_joint_offset" value="0.12"/>
+  <xacro:property name="realsense_height" value="1.05"/>
 
   <xacro:include filename="$(find robaka)/urdf/robaka_v2_gazebo_plugins.xacro"/>
   
@@ -163,6 +164,7 @@
     </visual>
   </link>
 
+  <!--
   <joint name="camera_joint" type="fixed">
     <origin xyz="0.185 0 0.07" rpy="0 0 0" />
     <parent link="base_link" />
@@ -170,5 +172,22 @@
   </joint>
   <link name="camera" type="fixed">
   </link>
+  -->
+
+  <joint name="realsense_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <origin xyz="0.185 0 ${realsense_height}" rpy="0 0 0" />
+  </joint>
+  <link name="camera_link" type="fixed">
+     <visual>
+      <material name="blue" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.015" length="0.08"/>
+      </geometry>
+    </visual>
+  </link>
+
 
 </robot>

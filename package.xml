@@ -16,7 +16,6 @@
   <depend>rosserial_arduino</depend>
   <depend>rviz_imu_plugin</depend>
   <depend>teleop_twist_keyboard</depend>
-  <depend>cartographer</depend>
   <depend>amcl</depend>
   <depend>move_base</depend>
   <depend>map_server</depend>
@@ -28,5 +27,6 @@
   <depend>dwa_local_planner</depend>
   <depend>twist_mux</depend>
   <depend>nmea_navsat_driver</depend>
-  <depend>realsense2_camera</depend>
+  <depend>rtabmap</depend>
+  <depend>rtabmap_ros</depend>
 </package>
