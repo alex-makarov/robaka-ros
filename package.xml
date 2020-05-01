@@ -29,4 +29,5 @@
   <depend>twist_mux</depend>
   <depend>nmea_navsat_driver</depend>
   <depend>realsense2_camera</depend>
+  <depend>laser_filters</depend>
 </package>

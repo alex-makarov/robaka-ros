@@ -1,7 +1,10 @@
 <launch>
 
     <include file="$(find robaka)/launch/headlessrobaka.launch" pass_all_args="true" />
-    <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+   	     <arg name="enable_infra1" value="false"/>
+	     <arg name="enable_depth" value="false"/>
+    </include>
 
     <node pkg="semantic_segmentation" type="segmentation_node" name="segmentation_node" output="screen" ns="/camera/color">
 	  <param name="topic_image" value="image_raw" />

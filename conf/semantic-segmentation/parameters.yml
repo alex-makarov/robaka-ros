@@ -12,8 +12,8 @@ seg_width: 54
 #seg_width: 640
 
 # the width and height of the image representing a top-down view of the real world
-costmap_height: 20
-costmap_width: 30
+costmap_height: 40
+costmap_width: 40
 
 # the number of meters per pixel (currently 0.05)
 m_per_pixel: 5.00e-02

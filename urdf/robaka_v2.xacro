@@ -41,7 +41,8 @@
       <inertia ixx="${m / 12.0 * (d*d + h*h)}" ixy="0.0" ixz="0.0" iyy="${m / 12.0 * (w*w + h*h)}" iyz="0.0" izz="${m / 12.0 * (w*w + d*d)}"/>
     </inertial>
   </xacro:macro>
- 
+
+  <link name="dummy"/>
   <link name="base_footprint">
     <xacro:box_inertia m="8" w="0.001" h="0.001" d="0.001"/>
     <visual>
@@ -52,6 +53,10 @@
         </geometry>
     </visual>
   </link>
+  <joint name="dummy_joint" type="fixed">
+     <parent link="dummy"/>
+     <child link="base_footprint"/>
+   </joint>
  
   <link name="base_link">
     <xacro:box_inertia m="1" w="${base_len}" h="${base_width}" d="0.01"/>
@@ -166,9 +171,9 @@
   <joint name="camera_joint" type="fixed">
     <origin xyz="0.185 0 0.07" rpy="0 0 0" />
     <parent link="base_link" />
-    <child link="camera" />
+    <child link="camera_link" />
   </joint>
-  <link name="camera" type="fixed">
+  <link name="camera_link" type="fixed">
   </link>
 
 </robot>

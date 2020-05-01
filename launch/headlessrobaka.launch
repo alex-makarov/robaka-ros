@@ -21,6 +21,13 @@
     <param name="ignore_array" type="string" value="" />
     <param name="samp_rate"    type="int"    value="9"/>
     <param name="frequency"    type="double" value="7"/>
+    <remap from="scan" to="base_scan"/>
+  </node>
+
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
+    <rosparam command="load" file="$(find robaka)/conf/laser_filters.yaml" />
+    <remap from="scan" to="base_scan" />
+    <remap from="scan_filtered" to="scan" />
   </node>
 
   <!-- IMU -->
@@ -37,7 +44,7 @@
 
   <!-- Model and state publisher -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robaka)/urdf/robaka_v2.xacro"/>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
   <!-- PS4 joypad -->

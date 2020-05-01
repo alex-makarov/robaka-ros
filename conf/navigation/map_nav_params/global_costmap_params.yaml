@@ -8,7 +8,7 @@ global_costmap:
    resolution: 0.1
    origin_x: -20.0
    origin_y: -20.0
-   static_map: true
+#   static_map: true
    rolling_window: false
 
    plugins:
