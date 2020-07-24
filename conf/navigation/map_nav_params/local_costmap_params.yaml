@@ -3,20 +3,21 @@ local_costmap:
    robot_base_frame: base_footprint
    update_frequency: 5.0
    publish_frequency: 5.0
-   width: 10.0
-   height: 10.0
-   resolution: 0.05
+   width: 5.0
+   height: 5.0
+   origin_x: -4.5
+   origin_y: -2.0
+   resolution: 0.05 # was 0.0067
    static_map: false
    rolling_window: true
+   always_send_full_costmap: true
 
    plugins:
    - {name: segmentation_layer, type: "segmentation_layer::SegmentationLayer"}
+#   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
 # Parameters for the Segmentation costmap are in conf/semantic-segmentation
 
-#   plugins:
-#   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
-
-#   inflater_layer:
-#     inflation_radius: 0.1 # was 0.1
-#     cost_scaling_factor: 0.5 # was 0.5
+   inflater_layer:
+     inflation_radius: 0.05 # was 0.1
+     cost_scaling_factor: 0.5 # was 0.5

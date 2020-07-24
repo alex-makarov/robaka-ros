@@ -4,10 +4,11 @@ segmentation_layer:
   # Folder with parameters.yaml
   homography_folder: /home/alex/src/catkin_ws/src/robaka-ros/conf/semantic-segmentation
   # Zero-indexed IDs marked as an osbtable
-  obstacle_ids_str: 1
+  obstacle_ids_str: 66
   # Zero-indexed ID to clear obstacles
-  path_ids_str: 44
+  path_ids_str: 1
   # meters to the left/right of the bot to modify costmap
-  x_range: 5.0
+  x_range: 1.2
   # meters in front of the bot to modify costmap
-  y_range: 5.0
+  y_range: 2.7
+  

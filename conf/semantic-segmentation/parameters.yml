@@ -8,16 +8,20 @@ image_width: 640
 # (when given the above input)
 #seg_height: 11
 #seg_width: 54
-#seg_height: 480
-#seg_width: 640
+seg_height: 960 #480
+seg_width: 1280 #640
 
 # the width and height of the image representing a top-down view of the real world
-costmap_height: 800
-costmap_width: 800
+costmap_height: 480 # 480
+costmap_width: 960 # 640
 
 # the number of meters per pixel (currently 0.05)
 #m_per_pixel: 5.00e-02
-m_per_pixel: 0.05
+
+#m_per_pixel: 0.0067
+m_per_pixel: 0.0006
+
+#m_per_pixel: 0.01
 #m_per_pixel: 0.01
 
 # file path indicating where to write the file
