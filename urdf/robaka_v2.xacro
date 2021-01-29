@@ -100,7 +100,7 @@
       <xacro:cylinder_inertia m="10" r="${wheel_radius}" h="0.02"/>
     </link>
 
-    <joint name="${prefix}_wheel_joint" type="continuous">
+    <joint name="${prefix}_wheel" type="continuous">
       <axis xyz="0 1 0" rpy="0 0 0" />
       <parent link="base_link"/>
       <child link="${prefix}_wheel"/>
