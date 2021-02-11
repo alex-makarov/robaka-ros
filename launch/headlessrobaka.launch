@@ -50,17 +50,16 @@
   <!-- PS4 joypad -->
   <include file="$(find ds4_driver)/launch/ds4_twist.launch">
     <arg name="dof" value="2"/>
-    <remap from="cmd_vel" to="joypad_teleop/cmd_vel"/>
+    <arg name="topic" value="joy_vel"/>
   </include>
 
-  <!-- Twist MUX -->
   <node pkg="twist_mux" type="twist_mux" name="twist_mux">
     <rosparam command="load" file="$(find robaka)/conf/twist_mux.yaml" />
-    <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/>
+    <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/> 
   </node>
 
   <!-- GPS -->
-<!--  <node name="nmea_serial_driver_node" pkg="nmea_navsat_driver" type="nmea_serial_driver" output="screen">
+  <node name="nmea_serial_driver_node" pkg="nmea_navsat_driver" type="nmea_serial_driver" output="screen">
     <param name="port" value="/dev/ttyACM0"/>
     <param name="baud" value="115200" />
     <param name="frame_id" value="gps" />
@@ -68,8 +67,8 @@
     <param name="time_ref_source" value="gps" />
     <param name="useRMC" value="False" />
   </node>
--->
-  
+
+
   <!-- ROS control -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
   
