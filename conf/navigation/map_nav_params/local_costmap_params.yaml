@@ -13,9 +13,8 @@ local_costmap:
    always_send_full_costmap: true
 
    plugins:
-   - {name: segmentation_layer, type: "segmentation_layer::SegmentationLayer"}
-#   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
-
+#   - {name: segmentation_layer, type: "segmentation_layer::SegmentationLayer"}
+   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 # Parameters for the Segmentation costmap are in conf/semantic-segmentation
 
    inflater_layer:

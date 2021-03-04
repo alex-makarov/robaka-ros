@@ -27,3 +27,8 @@ add_executable(odom_listener src/cartographer_tf_to_odom.cpp)
 target_link_libraries(odom_listener ${catkin_LIBRARIES})
 install(TARGETS odom_listener
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+catkin_install_python(PROGRAMS
+  src/display.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

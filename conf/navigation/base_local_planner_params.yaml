@@ -4,14 +4,14 @@ TebLocalPlannerROS:
   acc_lim_y: 0.0
   acc_lim_theta:  10 #  1 for real
 
-  max_vel_x: 1.0
-  max_vel_x_backwards: 1.0
+  max_vel_x: 0.2
+  max_vel_x_backwards: 0.2
 #  min_vel_x: 0.1
 
   max_trans_vel: 1.0
 #  min_trans_vel: 0.5
 
-  max_rot_vel: 6.28
+  max_rot_vel: 1.57
 #  min_rot_vel: 0.6
 
   max_vel_theta: 8 # real 0.8
@@ -20,7 +20,6 @@ TebLocalPlannerROS:
 
 #  trans_stopped_vel: 0.2
 #  rot_stopped_vel: 0.5
-
   holonomic_robot: false
   escape_vel: -1.0
 
@@ -46,7 +45,7 @@ TebLocalPlannerROS:
   heading_lookahead: 0.5  #How far to look ahead in meters when scoring different in-place-rotation trajectories
   heading_scoring: false  #Whether to score based on the robot's heading to the path or its distance from the path. default false
   heading_scoring_timestep: 0.8   #How far to look ahead in time in seconds along the simulated trajectory when using heading scoring (double, default: 0.8)
-  dwa: false #Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout
+  dwa: true #Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout
   twirling_scale: 20
   simple_attractor: false
   publish_cost_grid_pc: true

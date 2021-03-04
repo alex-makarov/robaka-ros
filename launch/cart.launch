@@ -1,0 +1,31 @@
+<launch>
+  <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="log"/>
+  <!-- IMU -->
+  <node pkg="adafruit_imu" type="imu_node" name="imu_node" output="screen" />
+  <!-- IMU filter -->
+  <include file="$(find robaka)/launch/include/imu.launch" />
+
+  <!-- Display -->
+  <node name="lcd1602_driver" pkg="lcd1602_driver" type="lcd1602_driver" />
+  <node name="display" pkg="robaka" type="display.py" output="screen" />
+
+  <!-- Model and state publisher -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robaka)/urdf/robaka_v2.xacro"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+  <!-- PS4 joypad -->
+  <include file="$(find ds4_driver)/launch/ds4_twist.launch">
+    <arg name="dof" value="2"/>
+    <arg name="topic" value="joy_vel"/>
+  </include>
+
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
+    <rosparam command="load" file="$(find robaka)/conf/twist_mux.yaml" />
+    <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/> 
+  </node>
+
+  <!-- ROS control -->
+  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
+  
+</launch>

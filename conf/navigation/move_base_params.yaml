@@ -1,5 +1,5 @@
-#base_local_planner: teb_local_planner/TebLocalPlannerROS
-base_local_planner: dwa_local_planner/DWAPlannerROS
+base_local_planner: teb_local_planner/TebLocalPlannerROS
+#base_local_planner: dwa_local_planner/DWAPlannerROS
 base_global_planner: global_planner/GlobalPlanner
 
 shutdown_costmaps: false
@@ -22,5 +22,3 @@ GlobalPlanner:
   visualize_potential: true
   cost_factor: 3.0
   orientation_mode: 1
-  
-  

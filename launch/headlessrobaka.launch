@@ -5,6 +5,10 @@
   <!-- Realsense -->
   <!-- <include file="$(find realsense2_camera)/launch/rs_camera.launch" /> -->
 
+  <!-- Display -->
+  <node name="lcd1602_driver" pkg="lcd1602_driver" type="lcd1602_driver" />
+  <node name="display" pkg="robaka" type="display.py" output="screen" />
+
   <!-- Lidar. Source: git clone https://github.com/EAIBOT/ydlidar -->
   <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
     <param name="port"         type="string" value="/dev/ydlidar"/>  
