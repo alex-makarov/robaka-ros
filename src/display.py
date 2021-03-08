@@ -38,7 +38,7 @@ def send_update(pub):
     gpu_temp = float(os.popen("cat /sys/devices/virtual/thermal/thermal_zone2/temp").read())/1000.0
     message += "LA:{la:.1f} C:{cpu_temp:.0f} G:{gpu_temp:.0f}".format(la=la, cpu_temp=cpu_temp, gpu_temp=gpu_temp)
 
-    rospy.loginfo(message)
+#    rospy.loginfo(message)
     pub.publish(message)
     
 def main():
@@ -52,9 +52,6 @@ def main():
     rate = rospy.Rate(1)
     while not rospy.is_shutdown():
         send_update(pub)
-        
-    #   rospy.spin()
-    
         rate.sleep()
 
 if __name__ == '__main__':

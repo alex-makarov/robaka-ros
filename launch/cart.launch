@@ -1,10 +1,16 @@
 <launch>
-  <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="log"/>
   <!-- IMU -->
   <node pkg="adafruit_imu" type="imu_node" name="imu_node" output="screen" />
   <!-- IMU filter -->
   <include file="$(find robaka)/launch/include/imu.launch" />
 
+  <!-- Realsense -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="initial_reset" value="true"/>
+  </include>
+  <!-- AR tag tracker -->
+  <include file="$(find robaka)/launch/ar_track.launch" />
+  
   <!-- Display -->
   <node name="lcd1602_driver" pkg="lcd1602_driver" type="lcd1602_driver" />
   <node name="display" pkg="robaka" type="display.py" output="screen" />
@@ -20,12 +26,13 @@
     <arg name="topic" value="joy_vel"/>
   </include>
 
+  <!-- cmd_vel muxer -->
   <node pkg="twist_mux" type="twist_mux" name="twist_mux">
     <rosparam command="load" file="$(find robaka)/conf/twist_mux.yaml" />
     <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/> 
   </node>
 
-  <!-- ROS control -->
+  <!-- Hoverboard driver -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
   
 </launch>

@@ -2,8 +2,10 @@
   <!-- Camera -->
   <!-- R.Pi camera -->
   <!-- <node pkg="jetbot_ros" type="jetbot_camera" name="camera" output="log"/> -->
+
   <!-- Realsense -->
-  <!-- <include file="$(find realsense2_camera)/launch/rs_camera.launch" /> -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+  <include file="$(find robaka)/launch/ar_track.launch" />
 
   <!-- Display -->
   <node name="lcd1602_driver" pkg="lcd1602_driver" type="lcd1602_driver" />

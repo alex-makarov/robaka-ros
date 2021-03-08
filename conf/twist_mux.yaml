@@ -11,6 +11,10 @@ topics:
   topic   : cmd_vel
   timeout : 0.1
   priority: 5
+- name    : tag_follower
+  topic   : tag_follower/cmd_vel
+  timeout : 0.5
+  priority: 3
 locks:
 - name    : e_stop
   topic   : e_stop
