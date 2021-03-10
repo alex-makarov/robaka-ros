@@ -2,9 +2,8 @@
 
 ![Robaka 2](doc/images/robaka2.png?raw=true "Robaka")
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KP6Jw8Xr8P8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KbH6WZnc5S4?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![AR tag follower](https://img.youtube.com/vi/KP6Jw8Xr8P8/0.jpg)](https://www.youtube.com/watch?v=KP6Jw8Xr8P8)
+[![BBQ cart](https://img.youtube.com/vi/KbH6WZnc5S4/0.jpg)](https://www.youtube.com/watch?v=KbH6WZnc5S4)
 
 This is the ROS package for Robaka, my ROS and SLAM mobile testbed. Robaka uses ros_control with hardware driver from [this repo](https://github.com/alex-makarov/hoverboard-driver), which relies on hoverboard custom firmware by [Bipropellant](https://github.com/bipropellant).
 
