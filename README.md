@@ -2,6 +2,10 @@
 
 ![Robaka 2](doc/images/robaka2.png?raw=true "Robaka")
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KP6Jw8Xr8P8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KbH6WZnc5S4?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 This is the ROS package for Robaka, my ROS and SLAM mobile testbed. Robaka uses ros_control with hardware driver from [this repo](https://github.com/alex-makarov/hoverboard-driver), which relies on hoverboard custom firmware by [Bipropellant](https://github.com/bipropellant).
 
 If you're looking for the Arduino-based Robaka 1, the code is on `robaka-1` branch.
@@ -69,4 +73,11 @@ Added semantic segmentation for driveable surface. Not tested yet. [Cloned repo]
 
 * 2020-04-18
 Semantic segmentation actually works on a pre-trained network. Started work on transforming the mask using camera homography into a costmap, documenting [here](doc/semantic-segmentation/README.md)
+
+* 2021-03-10
+Added LCD display to show robot status.
+Added "AR tag follower" mode. 
+Switched hoverboard driver from speed control to PWM control (much smoother motion).
+
+
 
