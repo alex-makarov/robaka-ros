@@ -3,16 +3,16 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find robaka)/conf/cartographer
-          -configuration_basename robaka.lua"
-      output="screen">
+          -configuration_basename robaka.lua">
+<!--      output="screen"> -->
     <remap from="imu" to="imu/data" />
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
-      type="cartographer_occupancy_grid_node" args="-resolution 0.05">
+      type="cartographer_occupancy_grid_node" args="-resolution 0.03">
     <remap from="imu/data" to="imu" />
   </node>
 
-    <node name="odom_listener" pkg="$(find robaka)" type="odom_listener" />
+  <node name="odom_listener" pkg="robaka" type="odom_listener" />
 
 </launch>

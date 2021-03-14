@@ -7,7 +7,7 @@ local_costmap:
    height: 5.0
    origin_x: -4.5
    origin_y: -2.0
-   resolution: 0.05 # was 0.0067
+   resolution: 0.03 # was 0.0067
    static_map: false
    rolling_window: true
    always_send_full_costmap: true
@@ -15,7 +15,6 @@ local_costmap:
    plugins:
 #   - {name: segmentation_layer, type: "segmentation_layer::SegmentationLayer"}
    - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
-# Parameters for the Segmentation costmap are in conf/semantic-segmentation
 
    inflater_layer:
      inflation_radius: 0.05 # was 0.1

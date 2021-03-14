@@ -37,7 +37,6 @@ imu0_relative: true
 imu0_differential: false
 
 odom_frame: odom
-base_link_frame: base_link
-#world_frame: odom
+base_link_frame: base_footprint
 world_frame: map
 

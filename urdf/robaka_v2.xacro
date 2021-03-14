@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robaka_v2">
 
   <xacro:property name="base_width" value="0.3"/>
-  <xacro:property name="base_len" value="0.4"/>
+  <xacro:property name="base_len" value="0.46"/>
   <xacro:property name="base_height" value="0.12"/>
   <xacro:property name="wheel_radius" value="0.085"/>
   <xacro:property name="base_wheel_gap" value="0.02"/>
@@ -56,7 +56,8 @@
   <joint name="dummy_joint" type="fixed">
      <parent link="dummy"/>
      <child link="base_footprint"/>
-     </joint>
+  </joint>
+
  
   <link name="base_link">
     <xacro:box_inertia m="1" w="${base_len}" h="${base_width}" d="0.01"/>
@@ -169,11 +170,17 @@
   </link>
 
   <joint name="camera_joint" type="fixed">
-    <origin xyz="0.185 0 0.07" rpy="0 0 3.14159" />
+    <origin xyz="0.270 0 0.10" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="camera_link" />
   </joint>
   <link name="camera_link" type="fixed">
+    <visual>
+      <material name="lightgray"/>
+      <geometry>
+        <box size="0.025 0.09 0.025"/>
+      </geometry>
+    </visual>
   </link>
 
 </robot>

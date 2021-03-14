@@ -5,7 +5,7 @@ global_costmap:
    publish_frequency: 5.0
    width: 40.0
    height: 40.0
-   resolution: 0.1
+   resolution: 0.03
    origin_x: -20.0
    origin_y: -20.0
 #   static_map: true
@@ -17,5 +17,5 @@ global_costmap:
    - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
    inflater_layer:
-     inflation_radius: 0.2 # was 0.1
+     inflation_radius: 0.05 # was 0.1
      cost_scaling_factor: 1.0 # was 0.5
