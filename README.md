@@ -1,5 +1,7 @@
 # ROBAKA
 
+**NEW**: [Join](https://join.slack.com/t/robaka/shared_invite/zt-q52yfvnl-IP0h~JDOmgh3VmJ7Hh69Jw) the community on Slack to discuss Robaka implementations!
+
 ![Robaka 2](doc/images/robaka2.png?raw=true "Robaka")
 
 [![AR tag follower](https://img.youtube.com/vi/KP6Jw8Xr8P8/0.jpg)](https://www.youtube.com/watch?v=KP6Jw8Xr8P8)
