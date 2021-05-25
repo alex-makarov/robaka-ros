@@ -7,10 +7,28 @@
 [![AR tag follower](https://img.youtube.com/vi/KP6Jw8Xr8P8/0.jpg)](https://www.youtube.com/watch?v=KP6Jw8Xr8P8)
 [![BBQ cart](https://img.youtube.com/vi/KbH6WZnc5S4/0.jpg)](https://www.youtube.com/watch?v=KbH6WZnc5S4)
 
+# Other builds
+<img src="https://user-images.githubusercontent.com/4759630/119562465-a6777700-bda6-11eb-9cea-d42b2a17e24e.png" width=250/> <img src="https://user-images.githubusercontent.com/4759630/119562485-abd4c180-bda6-11eb-9c6d-9c8701da27c5.png" width=250/>
+
+by Andrei Zugravu
+
+<img src="https://user-images.githubusercontent.com/4759630/119561671-c490a780-bda5-11eb-85b5-7359e5abc6aa.png" width=250/>
+
+by Luis Augusto Silva from the University of Salamanca
+
+<img src="https://user-images.githubusercontent.com/4759630/119561313-4d5b1380-bda5-11eb-97ca-c91a708aff0d.png" width=250/>
+
+by [Martin Nievas](https://github.com/MartinNievas)
+
+
+
+# Summary
+
 This is the ROS package for Robaka, my ROS and SLAM mobile testbed. Robaka uses ros_control with hardware driver from [this repo](https://github.com/alex-makarov/hoverboard-driver), which relies on hoverboard custom firmware by [Bipropellant](https://github.com/bipropellant).
 
 If you're looking for the Arduino-based Robaka 1, the code is on `robaka-1` branch.
 
+# How to
 
 To start:
 ```
