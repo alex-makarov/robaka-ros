@@ -14,7 +14,7 @@ by Andrei Zugravu
 
 <img src="https://user-images.githubusercontent.com/4759630/119561671-c490a780-bda5-11eb-85b5-7359e5abc6aa.png" width=250/>
 
-by Luis Augusto Silva from the University of Salamanca
+by Luis Augusto Silva and [ESALab Team](https://esalab.es)
 
 <img src="https://user-images.githubusercontent.com/4759630/119561313-4d5b1380-bda5-11eb-97ca-c91a708aff0d.png" width=250/>
 
