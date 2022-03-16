@@ -32,9 +32,6 @@
     <color rgba="0.8 0.0 0.0 1.0"/>
   </material>
 
-  <!-- Import Rviz colors -->
-<!--  <xacro:include filename="$(find ros_robotics)/urdf/materials.xacro" /> -->
-  
   <xacro:macro name="box_inertia" params="m w h d">
     <inertial>
       <mass value="${m}"/>
