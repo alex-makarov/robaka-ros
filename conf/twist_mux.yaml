@@ -1,4 +1,8 @@
 topics:
+- name    : freedom
+  topic   : freedom_vel
+  timeout : 0.1
+  priority: 30
 - name    : joypad
   topic   : joy_vel
   timeout : 0.1

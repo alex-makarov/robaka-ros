@@ -13,6 +13,6 @@
     <remap from="imu/data" to="imu" />
   </node>
 
-    <node name="odom_listener" pkg="$(find robaka)" type="odom_listener" />
+  <node name="odom_listener" pkg="$(find robaka)" type="odom_listener" />
 
 </launch>

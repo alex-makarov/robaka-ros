@@ -4,7 +4,6 @@
 
     <rosparam file="$(find robaka)/conf/navigation/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find robaka)/conf/navigation/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find robaka)/conf/semantic-segmentation/costmap_params.yaml" command="load" ns="local_costmap" />
     
     <rosparam file="$(find robaka)/conf/navigation/map_nav_params/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find robaka)/conf/navigation/map_nav_params/global_costmap_params.yaml" command="load" />
@@ -14,7 +13,7 @@
     <rosparam file="$(find robaka)/conf/navigation/dwa_local_planner_params.yaml" command="load" />
         
     <remap from="odom" to="odometry/filtered" />
-    <remap from="odom" to="cartographer_odom" />
+<!--    <remap from="odom" to="cartographer_odom" /> -->
   </node>
 
 </launch>

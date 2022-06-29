@@ -1,38 +1,134 @@
 <launch>
+
+  <!-- Hoverboard driver -->
+  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
+
+  <!-- Planar lidar -->
+  <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
+    <param name="port"         type="string" value="/dev/ydlidar"/>
+    <param name="baudrate"     type="int"    value="128000"/>
+    <param name="frame_id"     type="string" value="lidar"/>
+    <param name="low_exposure"  type="bool"   value="false"/>
+    <param name="resolution_fixed"    type="bool"   value="true"/>
+    <param name="auto_reconnect"    type="bool"   value="true"/>
+    <param name="reversion"    type="bool"   value="false"/>
+    <param name="angle_min"    type="double" value="-180" />
+    <param name="angle_max"    type="double" value="180" />
+    <param name="range_min"    type="double" value="0.1" />
+    <param name="range_max"    type="double" value="16.0" />
+    <param name="ignore_array" type="string" value="" />
+    <param name="samp_rate"    type="int"    value="9"/>
+    <param name="frequency"    type="double" value="7"/>
+    <remap from="scan" to="base_scan"/>
+  </node>
+
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
+    <rosparam command="load" file="$(find robaka)/conf/laser_filters.yaml" />
+    <remap from="scan" to="base_scan" />
+    <remap from="scan_filtered" to="scan" />
+  </node>
+
   <!-- IMU -->
   <node pkg="adafruit_imu" type="imu_node" name="imu_node" output="screen" />
   <!-- IMU filter -->
   <include file="$(find robaka)/launch/include/imu.launch" />
 
-  <!-- Realsense -->
-  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
-    <arg name="initial_reset" value="true"/>
-  </include>
-  <!-- AR tag tracker -->
-  <include file="$(find robaka)/launch/ar_track.launch" />
-  
-  <!-- Display -->
-  <node name="lcd1602_driver" pkg="lcd1602_driver" type="lcd1602_driver" />
-  <node name="display" pkg="robaka" type="display.py" output="screen" />
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <remap from="odometry/filtered" to="odom" />
+    <rosparam command="load" file="$(find robaka)/conf/robot_localization.yaml" />
+  </node>
 
   <!-- Model and state publisher -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robaka)/urdf/robaka_v2.xacro"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+    <rosparam>
+      odom_frame: odom
+      base_frame: base_link
+      map_frame: map
+
+      map_update_interval: 0.5 # Publish new map
+
+      maxUrange: 5.0 # Should be just less than sensor range
+      maxRange: 5.0 # Should be just greater than sensor range
+      particles: 50 # Increased from 80
+
+      # Update frequencies
+#      linearUpdate: 0.3
+#      angularUpdate: 0.5
+#      temporalUpdate: 2.0
+#      resampleThreshold: 0.5
+
+      # Initial Map Size
+      xmin: -100.0
+      ymin: -100.0
+      xmax: 100.0
+      ymax: 100.0
+      delta: 0.05
+
+      # All default
+      sigma: 0.05
+      kernelSize: 1
+      lstep: 0.05
+      astep: 0.05
+      iterations: 5
+      lsigma: 0.075
+      ogain: 3.0
+      lskip: 0
+      llsamplerange: 0.01
+      llsamplestep: 0.01
+      lasamplerange: 0.005
+      lasamplestep: 0.005
+    </rosparam>
+  </node>
+
+  <include file="$(find robaka)/launch/move_base_main.launch" />
+
+  <!-- Realsense -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="initial_reset" value="true"/>
+    <arg name="color_width" value="424" />
+    <arg name="color_height" value="240" />
+    <arg name="color_fps" value="6" />
+    <arg name="enable_depth" value="false" />
+  </include>
+  
+  <!-- Display -->
+  <node name="lcd1602_driver" pkg="lcd1602_driver" type="lcd1602_driver" />
+  <node name="display" pkg="robaka" type="display.py" output="screen" />
+
+
   <!-- PS4 joypad -->
-  <include file="$(find ds4_driver)/launch/ds4_twist.launch">
+<!--  <include file="$(find ds4_driver)/launch/ds4_twist.launch">
     <arg name="dof" value="2"/>
     <arg name="topic" value="joy_vel"/>
   </include>
+-->
+
+  <!-- GPS -->
+  <node name="nmea_serial_driver_node" pkg="nmea_navsat_driver" type="nmea_serial_driver" output="screen">
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="115200" />
+    <param name="frame_id" value="gps" />
+    <param name="use_GNSS_time" value="False" />
+    <param name="time_ref_source" value="gps" />
+    <param name="useRMC" value="False" />
+  </node>
 
   <!-- cmd_vel muxer -->
   <node pkg="twist_mux" type="twist_mux" name="twist_mux">
     <rosparam command="load" file="$(find robaka)/conf/twist_mux.yaml" />
-    <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/> 
+<!--    <remap from="cmd_vel_out" to="hoverboard_velocity_controller/cmd_vel"/>  -->
+    <remap from="cmd_vel_out" to="/unsafe/cmd_vel"/> 
   </node>
 
-  <!-- Hoverboard driver -->
-  <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
+  <node pkg="cob_collision_velocity_filter" type="collision_velocity_filter" name="collision_velocity_filter">
+    <rosparam command="load" file="$(find robaka)/conf/collision_velocity_filter.yaml" />
+    <remap from="command_in" to="/unsafe/cmd_vel"/>
+    <remap from="command" to="/hoverboard_velocity_controller/cmd_vel"/>
+  </node>
+
   
 </launch>

@@ -1,6 +1,6 @@
 local_costmap:
    global_frame: map
-   robot_base_frame: base_footprint
+   robot_base_frame: base_link
    update_frequency: 5.0
    publish_frequency: 5.0
    width: 5.0
@@ -12,9 +12,8 @@ local_costmap:
    rolling_window: true
    always_send_full_costmap: true
 
-   plugins:
+#   plugins:
 #   - {name: segmentation_layer, type: "segmentation_layer::SegmentationLayer"}
-   - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 # Parameters for the Segmentation costmap are in conf/semantic-segmentation
 
    inflater_layer:

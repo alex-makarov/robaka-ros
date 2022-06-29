@@ -74,6 +74,8 @@
     <param name="useRMC" value="False" />
   </node>
 
+  <!--- Run Move Base -->
+  <include file="$(find robaka)/launch/move_base_main.launch" />
 
   <!-- ROS control -->
   <include file="$(find hoverboard_driver)/launch/hoverboard.launch" />
